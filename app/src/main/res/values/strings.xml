@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Home Controll</string>
+    <string name="title_activity_room">Room Options</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="button_1">Living room</string>
+    <string name="button_2">Bed room</string>
+    <string name="button_3">Kitchen</string>
+    <string name="button_4">Bath room</string>
+
+    <string name="switch_1">On / Off</string>
+    <string name="switch_2">On / Off</string>
+    <string name="switch_3">On / Off</string>
+    <string name="switch_4">On / Off</string>
+
+    <string name="ip_input">Enter IP</string>
+    <string name="enter_ip_here">xxx.xxx.xxx.xxx</string>
+
+    <string name="connectFail">Failed to connect</string>
+    <string name="connectFailTitle">Error</string>
+    <string name="connectSuccess">Connected!</string>
+    <string name="connectSuccessTitle">Success</string>
+    <string name="ipError">Enter IP from settings first</string>
+
+
+
+</resources>
