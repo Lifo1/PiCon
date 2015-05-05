@@ -2,6 +2,8 @@
   <dictionary name="henri_000">
     <words>
       <w>checksocket</w>
+      <w>inputreader</w>
+      <w>inreader</w>
       <w>networktask</w>
       <w>sockadr</w>
     </words>

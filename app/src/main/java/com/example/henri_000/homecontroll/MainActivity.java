@@ -39,10 +39,12 @@ public class MainActivity extends ActionBarActivity
     private String inputIP;
     private Networktask networktask;
     private Checksocket checksocket;
+    Switch switch1, switch2, switch3, switch4;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    public void onCreate(Bundle savedInstanceState)
     {
+        inputIP = readFromFile();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (android.os.Build.VERSION.SDK_INT > 9) {
@@ -58,10 +60,10 @@ public class MainActivity extends ActionBarActivity
         Button button3 = (Button) findViewById(R.id.button3);
         Button button4 = (Button) findViewById(R.id.button4);
 
-        final Switch switch1 = (Switch) findViewById(R.id.switch1);
-        Switch switch2 = (Switch) findViewById(R.id.switch2);
-        Switch switch3 = (Switch) findViewById(R.id.switch3);
-        Switch switch4 = (Switch) findViewById(R.id.switch4);
+        switch1 = (Switch) findViewById(R.id.switch1);
+        switch2 = (Switch) findViewById(R.id.switch2);
+        switch3 = (Switch) findViewById(R.id.switch3);
+        switch4 = (Switch) findViewById(R.id.switch4);
 
         //Listeners for home screen buttons
         button1.setOnClickListener(new View.OnClickListener()
@@ -96,84 +98,158 @@ public class MainActivity extends ActionBarActivity
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                if (isChecked)
-                {
-                    if(inputIP != null)
-                    {
+                if (isChecked){
+                    if(inputIP != null){
                         try {
-                            //checksocket.cancel(true);
                             networktask = new Networktask();
                             networktask.execute();
-                            Thread.sleep(50, 0);
-                            networktask.toggleON();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (InterruptedException e) {
+                            Thread.sleep(100, 0);
+                            networktask.toggleON("1");
+                        } catch (IOException | InterruptedException e) {
                             e.printStackTrace();
                         }
-                    }
-                    else
-                    {
+                    } else {
                         alertIP();
                         switch1.setChecked(false);
                     }
-                }
-                else
-                {
-                    if(inputIP != null)
-                    {
+                } else {
+                    if(inputIP != null){
                         try {
                             networktask = new Networktask();
                             networktask.execute();
-                            Thread.sleep(50, 0);
-                            networktask.toggleOFF();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (InterruptedException e) {
+                            Thread.sleep(100, 0);
+                            networktask.toggleOFF("1");
+                        } catch (IOException | InterruptedException e) {
                             e.printStackTrace();
                         }
-                    }
-                    else
-                    {
+                    } else {
                         alertIP();
                         switch1.setChecked(false);
                     }
                 }
             }
         });
+
         switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-           @Override
-           public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    if(inputIP != null){
+                        try {
+                            networktask = new Networktask();
+                            networktask.execute();
+                            Thread.sleep(100, 0);
+                            networktask.toggleON("2");
+                        } catch (IOException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        alertIP();
+                        switch2.setChecked(false);
+                    }
+                } else {
+                    if(inputIP != null){
+                        try {
+                            networktask = new Networktask();
+                            networktask.execute();
+                            Thread.sleep(100, 0);
+                            networktask.toggleOFF("2");
+                        } catch (IOException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        alertIP();
+                        switch2.setChecked(false);
+                    }
+                }
+            }
+        });
 
-               if(isChecked)
-               {
+        switch3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    if(inputIP != null){
+                        try {
+                            networktask = new Networktask();
+                            networktask.execute();
+                            Thread.sleep(100, 0);
+                            networktask.toggleON("3");
+                        } catch (IOException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        alertIP();
+                        switch3.setChecked(false);
+                    }
+                } else {
+                    if(inputIP != null){
+                        try {
+                            networktask = new Networktask();
+                            networktask.execute();
+                            Thread.sleep(100, 0);
+                            networktask.toggleOFF("3");
+                        } catch (IOException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        alertIP();
+                        switch3.setChecked(false);
+                    }
+                }
+            }
+        });
 
-               }
-               else
-               {
+        switch4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    if(inputIP != null){
+                        try {
+                            networktask = new Networktask();
+                            networktask.execute();
+                            Thread.sleep(100, 0);
+                            networktask.toggleON("4");
+                        } catch (IOException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        alertIP();
+                        switch4.setChecked(false);
+                    }
+                } else {
+                    if(inputIP != null){
+                        try {
+                            networktask = new Networktask();
+                            networktask.execute();
+                            Thread.sleep(100, 0);
+                            networktask.toggleOFF("4");
+                        } catch (IOException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        alertIP();
+                        switch4.setChecked(false);
+                    }
+                }
+            }
+        });
 
-               }
-           }
-       }
-       );
+
 
     } //OnCreate() end
 
-
-    private class Checksocket extends AsyncTask<Void, Void, Void> {
+    public class Checksocket extends AsyncTask<Void, Void, Void> {
         private Socket socket;
         private PrintWriter printwriter;
         private InputStreamReader inreader;
         private BufferedReader inputreader;
-        private boolean connected;
         @Override
         protected Void doInBackground(Void... params) {
             SocketAddress sockadr = new InetSocketAddress(inputIP, 9090);
             socket = new Socket();
             try {
                 socket.connect(sockadr, 5000);
-                connected = true;
                 if (socket.isConnected()) {
                     printwriter = new PrintWriter(socket.getOutputStream(), true);
                     inreader = new InputStreamReader(socket.getInputStream());
@@ -190,27 +266,51 @@ public class MainActivity extends ActionBarActivity
         }
         @Override
         protected void onPostExecute(Void input) {
-            if(socket.isConnected() == true) {
+            if(socket.isConnected()) {
                 alertConnected();
-                try {
-                    socket.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
         }
         public void init() throws IOException
         {
             printwriter.println("INITIATE");
-           /* String in = inputreader.readLine();
+            String in = inputreader.readLine();
             StringTokenizer st = new StringTokenizer(in);
-            String states[] = new String[st.countTokens()];
-            for(int i = 0; i < st.countTokens(); i++)
+            int numberOfTokens = st.countTokens();
+            for(int i = 0; i < numberOfTokens; i++)
             {
-                states[i] = st.nextToken();
-                System.out.println(states[i]);
-            }*/
-
+                if(i==0)
+                {
+                    System.out.println("i = 0");
+                    if(st.nextToken().equals("LOW"))
+                        switch1.setChecked(false);
+                    else
+                        switch1.setChecked(true);
+                }
+                else if(i==1)
+                {
+                    System.out.println("i = 1");
+                    if(st.nextToken().equals("LOW"))
+                        switch2.setChecked(false);
+                    else
+                        switch2.setChecked(true);
+                }
+                else if(i==2)
+                {
+                    System.out.println("i = 2");
+                    if(st.nextToken().equals("LOW"))
+                        switch3.setChecked(false);
+                    else
+                        switch3.setChecked(true);
+                }
+                else if(i==3)
+                {
+                    System.out.println("i = 3");
+                    if(st.nextToken().equals("LOW"))
+                        switch4.setChecked(false);
+                    else
+                        switch4.setChecked(true);
+                }
+            }
         }
     }
 
@@ -238,13 +338,13 @@ public class MainActivity extends ActionBarActivity
         protected void onPostExecute(Void input) {
             //alertConnected();
         }
-        public void toggleON() throws IOException
+        public void toggleON(String unit) throws IOException
         {
-            printwriter.println("TOGGLE\nunit1 ON");
+            printwriter.println("TOGGLE\nunit" + unit + " ON");
         }
-        public void toggleOFF() throws IOException
+        public void toggleOFF(String unit) throws IOException
         {
-            printwriter.println("TOGGLE\nunit1 OFF");
+            printwriter.println("TOGGLE\nunit" + unit + " OFF");
         }
     }
 
@@ -321,7 +421,7 @@ public class MainActivity extends ActionBarActivity
                             checksocket.init();
                         } catch (NullPointerException e) {
                             alertConnectFail();
-                            return;
+                            //return;
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
