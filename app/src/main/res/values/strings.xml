@@ -20,7 +20,13 @@
     <string name="connectFailTitle">Error</string>
     <string name="connectSuccess">Connected!</string>
     <string name="connectSuccessTitle">Success</string>
+    <string name="timerSetTitle">Success</string>
+    <string name="timerSet">Timer set</string>
     <string name="ipError">Enter IP from settings first</string>
+    <string name="title_activity_time_picker">TimePicker</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_pick_time">PickTime</string>
 
 
 

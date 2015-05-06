@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.henri_000.homecontroll" >
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,12 +19,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RoomActivity"
-            android:label="@string/title_activity_room"
-            android:parentActivityName=".MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.henri_000.homecontroll.MainActivity" />
+            android:name=".TimePicker"
+            android:label="@string/title_activity_time_picker" >
+        </activity>
+        <activity
+            android:name=".PickTime"
+            android:label="@string/title_activity_pick_time" >
         </activity>
     </application>
 

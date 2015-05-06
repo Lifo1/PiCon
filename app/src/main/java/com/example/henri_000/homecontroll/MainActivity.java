@@ -36,7 +36,7 @@ import android.content.DialogInterface;
 
 public class MainActivity extends ActionBarActivity
 {
-    private String inputIP;
+    public static String inputIP;
     private Networktask networktask;
     private Checksocket checksocket;
     Switch switch1, switch2, switch3, switch4;
@@ -70,28 +70,32 @@ public class MainActivity extends ActionBarActivity
         {
             public void onClick(View v)
             {
-                startActivity(new Intent(getApplicationContext(), RoomActivity.class));
+                startActivity(new Intent(getApplicationContext(), PickTime.class));
+                PickTime.currentunit = 1;
             }
         });
         button2.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
-                startActivity(new Intent(getApplicationContext(), RoomActivity.class));
+                startActivity(new Intent(getApplicationContext(), PickTime.class));
+                PickTime.currentunit = 2;
             }
         });
         button3.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
-                startActivity(new Intent(getApplicationContext(), RoomActivity.class));
+                startActivity(new Intent(getApplicationContext(), PickTime.class));
+                PickTime.currentunit = 3;
             }
         });
         button4.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
-                startActivity(new Intent(getApplicationContext(), RoomActivity.class));
+                startActivity(new Intent(getApplicationContext(), PickTime.class));
+                PickTime.currentunit = 4;
             }
         });
 
@@ -239,7 +243,7 @@ public class MainActivity extends ActionBarActivity
 
     } //OnCreate() end
 
-    public class Checksocket extends AsyncTask<Void, Void, Void> {
+    private class Checksocket extends AsyncTask<Void, Void, Void> {
         private Socket socket;
         private PrintWriter printwriter;
         private InputStreamReader inreader;
@@ -314,7 +318,7 @@ public class MainActivity extends ActionBarActivity
         }
     }
 
-    private class Networktask extends AsyncTask<Void, Void, Void> {
+    public static class Networktask extends AsyncTask<Void, Void, Void> {
         private Socket socket;
         private PrintWriter printwriter;
 
@@ -328,7 +332,7 @@ public class MainActivity extends ActionBarActivity
                     printwriter = new PrintWriter(socket.getOutputStream(), true);
                 }
             } catch (IOException e) {
-                alertConnectFail();
+               // alertConnectFail();
                 e.printStackTrace();
             }
             return null;
@@ -346,6 +350,11 @@ public class MainActivity extends ActionBarActivity
         {
             printwriter.println("TOGGLE\nunit" + unit + " OFF");
         }
+        public void setTimer(String unit, String mode, String hour, String min)
+        {
+            printwriter.println("TIMER\nunit" + unit + " " + mode + "\n" + hour + ":" + min);
+        }
+
     }
 
 
@@ -451,7 +460,7 @@ public class MainActivity extends ActionBarActivity
     }
 
 
-    private String readFromFile() {
+    public String readFromFile() {
         String savedIP = "";
         try {
             InputStream inputStream = openFileInput("ip.txt");
